@@ -42,10 +42,7 @@ class BlackJack
 
     private function getScore(array $cards) {
         $points = [];
-        asort($cards);
-        $asortCards = $cards;
         rsort($cards);
-        $rsortCards = $cards;
         $letters = preg_grep("/A|K|Q|J/",$cards);
         rsort($letters);
         // calcul de la somme des cartes chiffre
@@ -63,7 +60,7 @@ class BlackJack
                     break;
             }
         }
-        // calcul de la somme des cartes lettres , le but est de traiter les as en dernier
+        // calcul de la somme des cartes lettres , le but est de traiter les AS en dernier
         foreach ($letters as $letter) {
             switch ($letter) {
                 case "A":
