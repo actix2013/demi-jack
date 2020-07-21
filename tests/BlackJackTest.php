@@ -51,6 +51,15 @@ class BlackJackTest extends TestCase
         $this->assertSame("par", $playerWin->play([$cardsPlayer, $cardsCroupier]));
     }
 
+
+    public function testAllOver2()
+    {
+        $cardsPlayer = ["Q", "K", "K", "K"];
+        $cardsCroupier = ["J", "J", "J"];
+        $playerWin = new BlackJack(null, null);
+        $this->assertSame("par", $playerWin->play([$cardsPlayer, $cardsCroupier]));
+    }
+
     public function testEquals()
     {
         $cardsPlayer = ["A", "2", "9"];
@@ -58,22 +67,4 @@ class BlackJackTest extends TestCase
         $playerWin = new BlackJack(null, null);
         $this->assertSame("par", $playerWin->play([$cardsPlayer, $cardsCroupier]));
     }
-
-    public function allOver()
-    {
-        $cardsPlayer = ["K", "K", "K"];
-        $cardsCroupier = ["J", "J", "J"];
-        $playerWin = new BlackJack(null, null);
-        $this->assertSame("par", $playerWin->play([$cardsPlayer, $cardsCroupier]));
-    }
-
-    public function allOver2()
-    {
-        $cardsPlayer = ["Q","K", "K", "K"];
-        $cardsCroupier = ["J", "J", "J"];
-        $playerWin = new BlackJack(null, null);
-        $this->assertSame("par", $playerWin->play([$cardsPlayer, $cardsCroupier]));
-    }
-
-
 }
