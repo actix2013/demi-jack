@@ -18,10 +18,6 @@ class BlackJack
         }
     }
 
-    public function getResult() {
-        return "gagnant";
-    }
-
     public function play( array $cardDesks ) : string
     {
         $this->cardsPlayer = $cardDesks[0];
@@ -45,10 +41,12 @@ class BlackJack
         rsort($cards);
         $letters = preg_grep("/A|K|Q|J/",$cards);
         rsort($letters);
+        $nbAs = 0;
         // calcul de la somme des cartes chiffre
         foreach ($cards as $card) {
             switch ($card) {
                 case "A":
+                    $nbAs++;
                     break;
                 case "J":
                     break;
@@ -64,7 +62,7 @@ class BlackJack
         foreach ($letters as $letter) {
             switch ($letter) {
                 case "A":
-                    if ((array_sum($points) + 11) > 21) {
+                    if ((array_sum($points) + 11) > ( 21 -$nbAs +1 ) ) {
                         $points[] = 1;
                     } else {
                         $points[] = 11;

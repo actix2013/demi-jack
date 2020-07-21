@@ -26,7 +26,7 @@ class BlackJackTest extends TestCase
     public function testPlayerDualAsLoose()
     {
         $cardsPlayer = ["A", "A", "10"];
-        $cardsCroupier = ["1", "2", "5"];
+        $cardsCroupier = ["6", "2", "5"];
         $playerWin = new BlackJack(null, null);
         $this->assertSame("bank", $playerWin->play([$cardsPlayer, $cardsCroupier]));
     }
